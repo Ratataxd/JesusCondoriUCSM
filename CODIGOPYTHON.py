@@ -8,7 +8,7 @@ class Pedido:
 
     def ingresar_pedido(self, prod, cant, d1):
         if prod in d1:
-            if d1[prod] >= cant:
+            if d1[prod].cantidad >= cant:
                 self.d2[prod] = cant
                 print("Pedido registrado correctamente.")
             else:
@@ -22,11 +22,13 @@ class Pedido:
             print(producto, cantidad)
 
     def notificar_cliente(self, d1):
-        for producto, cantidad in self.d2.items():
-            d1[producto].cantidad -= cantidad
-        self.d2.clear()
-        print("El cliente ha sido notificado.")
-
+        if self.d2:
+            for producto, cantidad in self.d2.items():
+                d1[producto].cantidad -= cantidad
+            self.d2.clear()
+            print("El cliente ha sido notificado.")
+        else:
+            print("No hay pedidos en curso")
 if __name__ == "__main__":
     d1 = {}
 
@@ -39,7 +41,8 @@ if __name__ == "__main__":
         if opcion == 1:
             nombre = input("Ingrese el nombre del producto: ")
             cantidad = int(input("Ingrese la cantidad disponible: "))
-            d1[nombre] = Producto(cantidad)
+            producto = Producto(cantidad)
+            d1[nombre] = producto
         
         elif opcion == 2:
             pedido = Pedido()
