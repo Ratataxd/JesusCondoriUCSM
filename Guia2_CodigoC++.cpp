@@ -1,8 +1,11 @@
 
-asdadq;
-asdad
-sadsafw
+//ACTIVIDADES
+//ACTIVIDAD 1.
 
-void carro(()){
-    
-}
+
+//ACTIVIDAD 2.
+
+//ACTIVIDAD 3.
+
+//ACTIVIDAD 4.
+
