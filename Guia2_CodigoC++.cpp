@@ -3,7 +3,151 @@ using namespace std;
 
 //ACTIVIDADES
 //ACTIVIDAD 1.
+// A)
+class Animal {
+private:
+    string nombre;
+    int edad;
+    string tipo;
 
+public:
+    Animal(string _nombre, int _edad, string _tipo) : nombre(_nombre), edad(_edad), tipo(_tipo) {}
+
+    // para hacer sonidos
+    void hacerSonido() const {
+        cout << "El " << tipo << " " << nombre << " hace un sonido.\n";
+    }
+
+    // para alimentar al animal
+    void alimentar() const {
+        cout << "Se alimenta al " << tipo << " " << nombre << ".";
+    }
+};
+
+int main() {
+    Animal perro("Fido", 3, "perro");
+    Animal gato("Whiskers", 2, "gato");
+
+    perro.hacerSonido();
+    perro.alimentar();
+
+    gato.hacerSonido();
+    gato.alimentar();
+
+    return 0;
+}
+//B)
+class Coche {
+private:
+    string modelo;
+    int anio;
+    int velocidad; 
+
+public:
+    Coche(string _modelo, int _anio) : modelo(_modelo), anio(_anio), velocidad(0) {}
+
+    void acelerar(int incremento) {
+        velocidad += incremento;
+        cout << "El coche acelera a " << velocidad << " km/h.\n";
+    }
+
+    void frenar(int decremento) {
+        velocidad -= decremento;
+        if (velocidad < 0)
+            velocidad = 0;
+        cout << "El coche frena a " << velocidad << " km/h.\n";
+    }
+
+    int obtenerVelocidad() const {
+        return velocidad;
+    }
+};
+
+int main() {
+    Coche coche1("Toyota Camry", 2020);
+    Coche coche2("Ford Mustang", 2018);
+
+    coche1.acelerar(50);
+    coche2.acelerar(70);
+
+    coche1.frenar(20);
+    coche2.frenar(30);
+
+    cout << "La velocidad del coche 1 es: " << coche1.obtenerVelocidad() << " km/h.\n";
+    cout << "La velocidad del coche 2 es: " << coche2.obtenerVelocidad() << " km/h.";
+
+    return 0;
+}
+//C)
+class Estudiante {
+private:
+    string nombre;
+    int edad;
+    int calificacion;
+
+public:
+
+    Estudiante(string _nombre, int _edad) : nombre(_nombre), edad(_edad),calificacion(0) {}
+    void tomarExamen(int calif) {
+        calificacion = calif;
+        cout << "El estudiante " << nombre << " toma el examen con una calificación de " << calificacion << ".\n";
+    }
+    void calificar() const {
+        cout << "La calificación de " << nombre << " es: " << calificacion << ".";
+    }
+};
+
+int main() {
+
+    Estudiante estudiante1("Juan", 18);
+    Estudiante estudiante2("Maria", 17);
+
+    estudiante1.tomarExamen(16);
+    estudiante2.tomarExamen(20);
+
+    estudiante1.calificar();
+    estudiante2.calificar();
+
+    return 0;
+}
+//D)
+class Tienda {
+private:
+    string nombre;
+    string direccion;
+    string tipo;
+    int productos;
+
+public:
+    Tienda(string _nombre, string _direccion, string _tipo) : nombre(_nombre), direccion(_direccion), tipo(_tipo), productos(0) {}
+    void agregarProducto(int cantidad) {
+        productos += cantidad;
+        cout << "Se agregaron " << cantidad << " productos a la tienda " << nombre << ".\n";
+    }
+    void venderProducto(int cantidad) {
+        if (productos >= cantidad) {
+            productos -= cantidad;
+            cout << "Se vendieron " << cantidad << " productos en la tienda " << nombre << ".";
+        } else {
+            cout << "No hay suficientes productos en la tienda " << nombre << " para vender.";
+        }
+    }
+    int obtenerProductos() const {
+        return productos;
+    }
+};
+
+int main() {
+    Tienda tienda("Tienda Pablo", "Avenida 456", "Electrónica");
+
+    tienda.agregarProducto(80);
+
+    tienda.venderProducto(70); 
+
+    cout << "Productos en la tienda : " << tienda.obtenerProductos() << endl;
+
+    return 0;
+}
 
 //ACTIVIDAD 2.
 
